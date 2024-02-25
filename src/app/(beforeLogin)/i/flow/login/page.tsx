@@ -1,5 +1,7 @@
-import { redirect } from "next/dist/server/api-utils";
+import styles from './page.module.css';
 
-export default function Login(): void {
-    redirect(url : '/i/flow/login');
+export default function Home() {
+    return (
+        <div></div>
+    )
 }
