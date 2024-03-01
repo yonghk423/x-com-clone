@@ -1,3 +1,5 @@
+// 'use client'
+
 import styles from "@/app/page.module.css";
 import Image from "next/image";
 import xLogo from '../../../public/xlogo.png'
