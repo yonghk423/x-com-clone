@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Login() {
-    // redirect(url : 'i/flow/login')
+    redirect('/i/flow/login')
 }
