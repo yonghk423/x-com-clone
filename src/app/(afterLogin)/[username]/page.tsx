@@ -1,7 +1,8 @@
+
 export default function Profile() {
     return (
-        <main >
-            유저 홈페이지
+        <main>
+            프로필페이지
         </main>
     )
 }
