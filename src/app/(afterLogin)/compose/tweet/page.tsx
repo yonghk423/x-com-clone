@@ -1,7 +1,9 @@
-export default function Home() {
+import Home from "@/app/(afterLogin)/home/page"
+
+export default function Page() {
     return (
         <main>
-            홈페이지
+            <Home />
         </main>
     )
 }

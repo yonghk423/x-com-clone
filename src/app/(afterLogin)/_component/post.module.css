@@ -264,7 +264,7 @@
 
 .commentButton.commented svg,
 .commentButton:hover svg {
-    fill: rgb(29, 155, 240)
+    fill: rgb(112, 161, 195)
 }
 
 .commentButton.commented .count,
