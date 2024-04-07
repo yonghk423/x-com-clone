@@ -6,7 +6,8 @@ import Trend from "@/app/(afterLogin)/_component/Trend";
 
 export default function TrendSection() {
   const pathname = usePathname();
-  console.log('pathname', pathname);
+  console.log('trendsection pathname', pathname);
+
   if (pathname === "/explore") return null;
 
   return (
