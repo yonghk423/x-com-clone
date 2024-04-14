@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
+import PostArticle from './PostArticle';
 // import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
 // import { faker } from '@faker-js/faker';
 // import PostImages from "@/app/(afterLogin)/_component/PostImages";
@@ -29,7 +30,7 @@ export default function Post({ noImage }: Props) {
 
 
     return (
-        <article>
+        <PostArticle post={target}>
             <div className={style.postWrapper}>
                 <div className={style.postUserSection}>
                     <Link href={`/${target.User.id}`} className={style.postUserImage}>
@@ -55,6 +56,6 @@ export default function Post({ noImage }: Props) {
                     <ActionButtons />
                 </div>
             </div>
-        </article>
+        </PostArticle>
     )
 }
