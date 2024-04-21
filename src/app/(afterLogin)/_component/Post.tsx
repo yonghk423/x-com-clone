@@ -5,9 +5,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
 import PostArticle from './PostArticle';
-// import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
-// import { faker } from '@faker-js/faker';
-// import PostImages from "@/app/(afterLogin)/_component/PostImages";
+import { faker } from '@faker-js/faker';
+import PostImages from './PostImages';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime)
@@ -25,37 +24,44 @@ export default function Post({ noImage }: Props) {
         },
         content: "운동 열심히할거야 라면 끊을거야",
         createdAt: new Date(),
-        Images: [] as any[],
+        Images: [
+        ] as any[],
     }
 
+    if (Math.random() > 0.5) {
+        target.Images.push({
+            imageId: 1, link: faker.image.urlLoremFlickr()
+        })
 
-    return (
-        <PostArticle post={target}>
-            <div className={style.postWrapper}>
-                <div className={style.postUserSection}>
-                    <Link href={`/${target.User.id}`} className={style.postUserImage}>
-                        <img src={target.User.image} alt={target.User.nickname} />
-                        <div className={style.postShade} />
-                    </Link>
-                </div>
-                <div className={style.postBody}>
-                    <div className={style.postMeta}>
-                        <Link href={`/${target.User.id}`}>
-                            <span className={style.postUserName}>{target.User.nickname}</span>
-                            &nbsp;
-                            <span className={style.postUserId}>@{target.User.id}</span>
-                            &nbsp;
-                            ·
-                            &nbsp;
+        return (
+            <PostArticle post={target}>
+                <div className={style.postWrapper}>
+                    <div className={style.postUserSection}>
+                        <Link href={`/${target.User.id}`} className={style.postUserImage}>
+                            <img src={target.User.image} alt={target.User.nickname} />
+                            <div className={style.postShade} />
                         </Link>
-                        <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
                     </div>
-                    <div>{target.content}</div>
-                    <div>
+                    <div className={style.postBody}>
+                        <div className={style.postMeta}>
+                            <Link href={`/${target.User.id}`}>
+                                <span className={style.postUserName}>{target.User.nickname}</span>
+                                &nbsp;
+                                <span className={style.postUserId}>@{target.User.id}</span>
+                                &nbsp;
+                                ·
+                                &nbsp;
+                            </Link>
+                            <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
+                        </div>
+                        <div>{target.content}</div>
+                        {!noImage && <div>
+                            <PostImages post={target} />
+                        </div>}
+                        <ActionButtons />
                     </div>
-                    <ActionButtons />
                 </div>
-            </div>
-        </PostArticle>
-    )
+            </PostArticle>
+        )
+    }
 }
